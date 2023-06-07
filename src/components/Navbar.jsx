@@ -1,80 +1,75 @@
-import React, { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa"; 
-import { Link } from "react-scroll";
+import React, { useEffect, useState } from "react";
 
-const NavBar = () => {
-  const [nav, setNav] = useState(false);
-
-  const links = [
-    {
-      id: 1,
-      link: "home",
-    },
-    {
-      id: 2,
-      link: "about",
-    },
-    {
-      id: 3,
-      link: "portfolio",
-    },
-    {
-      id: 4,
-      link: "experience",
-    },
-    {
-      id: 5,
-      link: "contact",
-    },
+const Navbar = () => {
+  const [sticky, setSticky] = useState(false);
+  const [open, setOpen] = useState(false);
+  const menuLinks = [
+    { name: "HOME", link: "#home" },
+    { name: "ABOUT", link: "#about" },
+    { name: "SKILLS", link: "#skills" },
+    { name: "PROJECTS", link: "#projects" },
+    { name: "CONTACT", link: "#contact" },
   ];
-
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      const nav = document.querySelector("nav");
+      window.scrollY > 0 ? setSticky(true) : setSticky(false);
+    });
+  }, []);
   return (
-    <div className="flex justify-between items-center w-full h-20 px-4 text-white bg-black fixed">
-      <div>
-        <h1 className="text-5xl font-signature ml-2">Khalid</h1>
-      </div>
-
-      <ul className="hidden md:flex">
-        {links.map(({ id, link }) => (
-          <li
-            key={id}
-            className="px-4 cursor-pointer capitalize font-medium text-cyan-200 hover:scale-105 duration-200"
-          >
-            <Link to={link} smooth duration={500}>
-              {link}
-            </Link>
-          </li>
-        ))}
-      </ul>
-
-      <div
-        onClick={() => setNav(!nav)}
-        className="cursor-pointer pr-4 z-10 text-gray-500 md:hidden"
-      >
-        {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
-      </div>
-
-      {nav && (
-        <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-black to-gray-800 text-gray-500">
-          {links.map(({ id, link }) => (
-            <li
-              key={id}
-              className="px-4 cursor-pointer capitalize py-6 text-4xl"
-            >
-              <Link
-                onClick={() => setNav(!nav)}
-                to={link}
-                smooth
-                duration={500}
+    <nav
+      className={`fixed w-full left-0 top-0 z-[999] ${
+        sticky ? "bg-white/60  text-gray-900" : "text-white"
+      }`}
+    >
+      <div className="flex items-center justify-between">
+        <div className="mx-7">
+          <h4 className="text-4xl uppercase font-bold">
+            Kh<span className="text-cyan-600">al</span>id
+          </h4>
+        </div>
+        <div
+          className={` ${
+            sticky ? "md:bg-white/0 bg-white" : "bg-white"
+          } text-gray-900 md:block hidden px-7 py-2 font-medium  rounded-bl-full`}
+        >
+          <ul className="flex items-center gap-1 py-2 text-lg">
+            {menuLinks?.map((menu, i) => (
+              <li key={i} className="px-6 hover:text-cyan-600">
+                <a href={menu?.link}>{menu?.name}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div
+          onClick={() => setOpen(!open)}
+          className={`z-[999]  ${
+            open ? "text-gray-900" : "text-gray-100"
+          } text-3xl md:hidden m-5`}
+        >
+          <ion-icon name="menu"></ion-icon>
+        </div>
+        <div
+          className={`md:hidden text-gray-900 absolute w-2/3 h-screen
+      px-7 py-2 font-medium bg-white top-0 duration-300 ${
+        open ? "right-0" : "right-[-100%]"
+      }`}
+        >
+          <ul className="flex flex-col justify-center h-full gap-10 py-2 text-lg">
+            {menuLinks?.map((menu, i) => (
+              <li
+                onClick={() => setOpen(false)}
+                key={i}
+                className="px-6 hover:text-cyan-600"
               >
-                {link}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+                <a href={menu?.link}>{menu?.name}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 };
 
-export default NavBar;
+export default Navbar;

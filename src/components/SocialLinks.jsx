@@ -12,7 +12,7 @@ const SocialLinks = () => {
           LinkedIn <FaLinkedin size={30} />
         </>
       ),
-      href: "https://www.linkedin.com/in/khalid-abdikarim-mohamed-5a9a42213/",
+      href: "https://www.linkedin.com/in/khalid-abdikarim-5a9a42213/",
       style: "rounded-tr-md",
     },
     {
