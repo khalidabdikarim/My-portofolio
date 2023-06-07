@@ -20,7 +20,7 @@ const Hero = () => {
           
           </h1>
           
-          <p className="text-gray-500 py-4 max-w-md text-justify leading-7 w-11/12 ">
+          <p className="text-gray-500 py-4 max-w-md text-justify leading-7 w-11/12  ">
             I'm Khalid Abdikarim Mohmaed, I graduated from the
             University Putra Malaysia (UPM) in 2021 with a master in software
             engineering. I love to work on web application using technologies
