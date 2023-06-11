@@ -1,15 +1,15 @@
 import React from "react";
 
-function Test() {
+function Education () {
   return (
-    <div className="py-10 px-3 text-white bg-gradient-to-b from-gray-800 to-black">
+    <div className="py-2 px-8 text-white bg-gradient-to-b from-gray-800 to-black">
       <div className="text-center mt-8">
         <h3 className="text-4xl font-semibold">
           Education <span className="text-cyan-600">& Experience</span>
         </h3>
       </div>
 
-      <section className="py-10 px-4 md:py-16">
+      <section className="py-10 px-20 md:py-10">
         <div className="container mx-auto">
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -42,9 +42,9 @@ function Test() {
           </div>
         </div>
       </section>
-      <section className="py-10 px-4 md:py-16">
+      <section className="py-10 px-16 md:py-16">
       <div className="text-center mt-8">
-        <h3 className="text-4xl font-semibold">
+        <h3 className="text-4xl font-semibold ">
         Public<span className="text-cyan-600">ation</span>
         </h3>
         <p className="text-gray-400 my-3 text-lg">International Journal of Synergy in Engineering and Technology Vol. 3 No.2 (2022) 52-6</p>
@@ -66,4 +66,4 @@ function Test() {
   );
 }
 
-export default Test;
+export default Education;

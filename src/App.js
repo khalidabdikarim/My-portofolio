@@ -8,7 +8,7 @@ import Skills from "./components/Skills";
 import Hireme from "./components/Hireme";
 import ContactMe from "./components/ContactMe";
 import Footer from "./components/Footer";
-import Test from "./components/Test";
+import Education from "./components/Education";
 
 function app() {
   return (
@@ -16,7 +16,7 @@ function app() {
       <Navbar />
       <Bot />
       <Hero />
-      <Test />
+      <Education/>
       <About />
       <Skills />
       <Hireme />

@@ -1,8 +1,8 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Pagination, Autoplay } from "swiper";
-import "swiper/swiper.min.css";
-
+import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination, Autoplay } from "swiper";
 
 import pragmatictool from "../assets/portfolio/pragmatictool.jpg";
 import Myportofolio from "../assets/portfolio/Myportofolio.png";
@@ -10,8 +10,6 @@ import techbridge from "../assets/portfolio/techbridge.png";
 import plantrip from "../assets/portfolio/plantrip.png";
 import reactwithfirebase from "../assets/portfolio/reactwithfirebase.JPG";
 import portofolio from "../assets/portfolio/portofolio.JPG";
-
-SwiperCore.use([Pagination, Autoplay]);
 
 const Project = () => {
   const projects = [
@@ -63,21 +61,21 @@ const Project = () => {
       <div className="flex max-w-6xl gap-6 px-5 mx-auto items-center relative">
         <div className="lg:w-2/3 w-full">
           <Swiper
-            slidesPerView={1.2}
+            slidesPerview={1.2}
             spaceBetween={20}
             breakpoints={{
               768: {
                 slidesPerView: 2,
               },
             }}
-            loop={{
-              autoplay: {
-                delay: 3000,
-              },
+            loop={true}
+            autoplay={{
+              delay: 3000,
             }}
             pagination={{
               clickable: true,
             }}
+            modules={[Pagination, Autoplay]}
           >
             {projects.map((project_info, i) => (
               <SwiperSlide key={i}>
