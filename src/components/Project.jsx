@@ -60,7 +60,7 @@ const Project = () => {
       <div className="flex max-w-6xl gap-6 px-5 mx-auto items-center relative">
         <div className="lg:w-2/3 w-full">
           <Swiper
-            slidesPerview={1.2}
+            slidesperview={1.2}
             spaceBetween={20}
             breakpoints={{
               768: {
@@ -83,7 +83,7 @@ const Project = () => {
                   <h3 className="text-xl my-4">{project_info.name}</h3>
                   <div className="flex gap-3">
                     <a
-                      href={project_info.github_link}
+                      href= {project_info.github_link}
                       target="_blank"
                       className="text-cyan-600 bg-gray-800 px-2 py-1 inline-block"
                     >
