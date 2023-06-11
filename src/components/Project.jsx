@@ -1,15 +1,17 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Pagination, Autoplay } from "swiper";
+import "swiper/swiper.min.css";
+
+
 import pragmatictool from "../assets/portfolio/pragmatictool.jpg";
 import Myportofolio from "../assets/portfolio/Myportofolio.png";
 import techbridge from "../assets/portfolio/techbridge.png";
 import plantrip from "../assets/portfolio/plantrip.png";
-
 import reactwithfirebase from "../assets/portfolio/reactwithfirebase.JPG";
 import portofolio from "../assets/portfolio/portofolio.JPG";
-import "swiper/css";
-import "swiper/css/pagination";
-import { Pagination, Autoplay } from "swiper";
+
+SwiperCore.use([Pagination, Autoplay]);
 
 const Project = () => {
   const projects = [
@@ -28,23 +30,24 @@ const Project = () => {
     },
     {
       img: Myportofolio,
-      name: "My portofolio",
+      name: "My portfolio",
       github_link: "https://github.com/khalidabdikarim/My-portofolio",
       live_link: "https://khalid-portofolio.netlify.app/",
     },
     {
       img: reactwithfirebase,
-      name: "React With firebase V9",
+      name: "React With Firebase V9",
       github_link: "",
       live_link: "",
     },
     {
       img: pragmatictool,
-      name: "SRS checker ",
+      name: "SRS checker",
       github_link: "",
       live_link: "https://srschecker.herokuapp.com/",
     },
   ];
+
   return (
     <section
       id="projects"
@@ -60,21 +63,21 @@ const Project = () => {
       <div className="flex max-w-6xl gap-6 px-5 mx-auto items-center relative">
         <div className="lg:w-2/3 w-full">
           <Swiper
-            slidesperview={1.2}
+            slidesPerView={1.2}
             spaceBetween={20}
             breakpoints={{
               768: {
                 slidesPerView: 2,
               },
             }}
-            loop={true}
-            autoplay={{
-              delay: 3000,
+            loop={{
+              autoplay: {
+                delay: 3000,
+              },
             }}
             pagination={{
               clickable: true,
             }}
-            modules={[Pagination, Autoplay]}
           >
             {projects.map((project_info, i) => (
               <SwiperSlide key={i}>
@@ -83,8 +86,9 @@ const Project = () => {
                   <h3 className="text-xl my-4">{project_info.name}</h3>
                   <div className="flex gap-3">
                     <a
-                      href= {project_info.github_link}
+                      href={project_info.github_link}
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="text-cyan-600 bg-gray-800 px-2 py-1 inline-block"
                     >
                       Github
@@ -92,6 +96,7 @@ const Project = () => {
                     <a
                       href={project_info.live_link}
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="text-cyan-600 bg-gray-800 px-2 py-1 inline-block"
                     >
                       Live Demo
